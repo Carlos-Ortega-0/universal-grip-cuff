@@ -1,6 +1,6 @@
 # Universal Grip Cuff
 
-A 3D-printable hand cuff that holds a fork, a toothbrush or a pen for people who can't close their grip. One cuff, swappable tool adapters, three sizes, about $1.60 of filament.
+A 3D-printable hand cuff that holds a fork, a toothbrush or a pen for people who can't close their grip. One cuff, swappable tool adapters, a hook-and-loop strap, three sizes, about $1.60 of filament.
 
 ![Grip cuff, size M, with the flat-handle adapter](renders/hero_assembled_M.png)
 
@@ -20,18 +20,33 @@ A rigid cuff slides over the hand. A square socket sits on the palm side. Tool a
 
 Swap a fork for a pen in seconds. Print a new adapter when you need a new tool. The cuff stays the same.
 
+A rigid cuff alone would slide off or spin. So the back of the band has two slots for a 20 mm hook-and-loop (Velcro) strap. The strap goes in one slot, crosses the back of the hand inside the cuff, and comes out the other. Pull both ends and the strap presses the hand down onto the palm side of the cuff. Fold the ends back over the outside and stick hook onto loop. The cuff is now locked to the hand.
+
+![Strap routing, top view](renders/strap_routing.png)
+
+![Strap slots on the back of the cuff](renders/strap_slots_M.png)
+
 ![Exploded view: cuff, flat adapter, round adapter](renders/exploded_M.png)
 
 ![Top view: the C-shaped band, the palm-side socket boss, and the seated adapter clearing the wall](renders/top_view_M.png)
 
 Everything is built by a parametric Fusion 360 script. Change palm width, palm depth or socket size, run it again, and you get a new fit. No manual CAD work.
 
+## How it's used
+
+1. **Load a tool.** Push the handle into an adapter and tighten the set screw. Fork in the flat adapter, pen in the round one.
+2. **Attach the adapter.** Slide it into the socket from the thumb side and push the M3 bolt through.
+3. **Put it on.** Thread the strap through both slots first. Slide the cuff over the fingers like a wide bracelet until it sits at the knuckles. The thumb goes out the side gap.
+4. **Lock it.** Pull the strap ends snug and fold them over each other on the back of the cuff. A caregiver can do this in one motion, and so can many users with their other hand.
+5. **Use it.** The tool sticks out past the thumb, across the palm. The fingers don't grip anything. The arm and wrist steer the tool.
+
 ## Key characteristics
 
 - **Modular.** One cuff, many tools. The socket is a standard 12 mm square interface.
 - **Two adapters included.** Flat slot (4.5 x 15 mm) for forks, spoons and toothbrushes. Round bore (11 mm) for pens, pencils and markers.
 - **Three sizes.** S, M and L cuffs, all sharing the same adapters.
-- **Open thumb side.** The cuff is a C shape. The hand slides in. No straps.
+- **Strap lock.** Two slots on the back of the band take a 20 mm hook-and-loop strap. It takes up the skin clearance and stops the cuff from sliding or spinning.
+- **Open thumb side.** The cuff is a C shape, so the thumb stays free.
 - **No supports.** The cuff prints standing on its band edge. The socket boss runs the full band height, so nothing overhangs.
 - **Cheap hardware.** One M3 bolt as a cross pin, one M3 self-tapping screw as a set screw.
 - **Parametric.** Every dimension lives at the top of the script.
@@ -43,9 +58,9 @@ All dimensions measured from the exported STL files.
 
 | Part | Bounding box (mm) | Solid volume (cm³) | Mass at 100% PETG (g) |
 |---|---|---|---|
-| Cuff S | 71.7 x 57.2 x 35.0 | 33.59 | 42.7 |
-| Cuff M | 79.2 x 61.2 x 35.0 | 35.15 | 44.6 |
-| Cuff L | 86.6 x 65.2 x 35.0 | 36.69 | 46.6 |
+| Cuff S | 71.7 x 57.2 x 35.0 | 33.06 | 42.0 |
+| Cuff M | 79.2 x 61.2 x 35.0 | 34.63 | 44.0 |
+| Cuff L | 86.6 x 65.2 x 35.0 | 36.17 | 45.9 |
 | Adapter Flat | 49.5 x 22.0 x 22.0 | 13.62 | 17.3 |
 | Adapter Round | 49.5 x 22.0 x 22.0 | 13.05 | 16.6 |
 
@@ -53,19 +68,19 @@ All dimensions measured from the exported STL files.
 
 Fit parameters by size:
 
-| Size | Palm width | Palm depth | Thumb gap |
-|---|---|---|---|
-| S | 70 | 26 | 22 |
-| M | 80 | 30 | 26 |
-| L | 90 | 34 | 30 |
+| Size | Palm width | Palm depth | Thumb gap | Strap slot spacing |
+|---|---|---|---|---|
+| S | 70 | 26 | 22 | 40 |
+| M | 80 | 30 | 26 | 45 |
+| L | 90 | 34 | 30 | 50 |
 
-Shared: 2 mm skin clearance, 3 mm wall, 35 mm band height, 12.4 mm socket for a 12 mm shank (0.2 mm per side), 26 mm socket depth, 3.2 mm cross pin hole.
+Shared: 2 mm skin clearance, 3 mm wall, 35 mm band height, 12.4 mm socket for a 12 mm shank (0.2 mm per side), 26 mm socket depth, 3.2 mm cross pin hole, 4 x 22 mm strap slots for a 20 mm strap.
 
 ## Impact
 
 Who it helps: people with weak or no grip who can still move the arm. That includes stroke survivors, people with spinal cord injuries, arthritis, or cerebral palsy, and older adults losing hand strength. The target task is self-care: eating, brushing, writing.
 
-Cost: a full kit (one cuff plus both adapters) is 77 to 81 g of PETG even at 100% infill. At $20 per kg of filament that is $1.53 to $1.61, plus one M3 bolt and one M3 screw. Compare that with $25.80 for a single commercial fabric cuff that only takes flat handles. These are material estimates, not a full cost with labor and printer time.
+Cost: a full kit (one cuff plus both adapters) is 76 to 80 g of PETG even at 100% infill. At $20 per kg of filament that is $1.52 to $1.60, plus one M3 bolt, one M3 screw and about 20 cm of 20 mm hook-and-loop strap. Compare that with $25.80 for a single commercial fabric cuff that only takes flat handles. These are material estimates, not a full cost with labor and printer time.
 
 Local production: a clinic or school with one desktop printer can make every size. When a hand changes size, print a new cuff and keep the adapters.
 
@@ -91,16 +106,18 @@ testing/      Fit check method and print test plan
 3. Settings: 0.2 mm layers, 4 walls, 30 to 40% infill. Print the cuff standing on its band edge so layers wrap around the hand. Print adapters with the shank pointing up.
 4. Push an adapter into the socket from the thumb side. Line up the holes and insert an M3 x 40 bolt.
 5. Slide the tool into the adapter. Tighten the M3 set screw.
-6. Sand or deburr any edge that touches skin. A thin foam liner fits inside the 2 mm clearance.
+6. Cut about 20 cm of 20 mm hook-and-loop strap, or use a one-wrap strap. Thread it through both slots from the outside so it crosses the inside of the band.
+7. Sand or deburr any edge that touches skin. A thin foam liner fits inside the 2 mm clearance.
 
 Custom size: open `scripts/universal_grip_cuff/universal_grip_cuff.py`, edit `SIZES` or `P`, and run it in Fusion (Utilities > Add-Ins > Scripts and Add-Ins > + > script from device).
 
 ## Status and next steps
 
-Status: CAD complete in three sizes. Digital fit check passed. Not yet printed or tested on a hand.
+Status: CAD complete in three sizes with strap slots. Digital fit check passed. Not yet printed or tested on a hand.
 
 Next:
 - Print test in PETG, check socket fit and pin alignment
+- Test strap hold: does the cuff stay put while eating and writing?
 - Round all skin-contact edges with fillets
 - Add a ball-joint adapter for angle adjustment
 - Add adapters for a phone stylus and a toothbrush with a thick handle

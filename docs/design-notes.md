@@ -37,6 +37,14 @@ Socket boss on the palm side: 30 mm long (X), 35 mm tall (Z, full band height so
 
 The socket center sits 12 mm below the lowest point of the outer wall (half the adapter head plus 1 mm). This keeps the 22 mm adapter head clear of the cuff wall when seated. An earlier version placed the socket 6.7 mm below the wall, and the head collided with the band. Fixed before release. A later pass made the boss full height to remove a support-needing overhang.
 
+Strap slots: two 4 x 22 mm slots through the back wall (+Y), centered on the band height, at 50% of the outer half-width (x = ±20 / ±22.5 / ±25 mm for S / M / L). They take a 20 mm hook-and-loop strap with 2 mm of play.
+
+Strap routing: in through one slot, across the back of the hand inside the cuff, out the other slot, then both ends fold back over the outside and overlap hook on loop. Tension pulls the inside span straight, which presses the hand onto the palm wall. This removes the 2 mm clearance and stops the cuff from sliding or rotating under tool load.
+
+Why slots on the back and not a strap across the thumb gap: the thumb needs to stay free, and the back of the hand is flat enough for the strap to sit evenly.
+
+Implementation note: the slot is cut as a box sketched on an XY offset plane and extruded in +Z. An earlier attempt sketched on the XZ plane and cut through all; the cut silently removed nothing, so the method was changed.
+
 ### Adapters
 
 | Feature | Flat | Round |
@@ -55,9 +63,11 @@ The head doubles as a depth stop. It seats against the boss face and lines the p
 2. Adapter shank enters the socket from the thumb side.
 3. M3 x 40 bolt passes through boss and shank.
 4. Tool goes into the adapter pocket. M3 self-tapping screw clamps it.
+5. Strap threads through both back slots and closes over the outside of the band.
 
 ## What makes it different
 
+- Strap plus rigid shell: the strap gives the hold, the shell gives a fixed socket for tools.
 - Fabric cuffs take flat handles only. This takes flat and round tools, and new adapters can be printed for anything else.
 - Rigid socket gives a fixed tool angle, so the tool doesn't flop.
 - Fully parametric, so a clinic can size a cuff to one patient by editing numbers.
@@ -66,11 +76,12 @@ The head doubles as a depth stop. It seats against the boss face and lines the p
 
 | Item | Qty | Notes |
 |---|---|---|
-| Printed cuff (S, M or L) | 1 | PETG, ~43 to 47 g at 100% infill |
+| Printed cuff (S, M or L) | 1 | PETG, ~42 to 46 g at 100% infill |
 | Adapter Flat | 1 | PETG, ~17 g |
 | Adapter Round | 1 | PETG, ~17 g |
 | M3 x 40 bolt + nut | 1 | Cross pin |
 | M3 x 8 self-tapping screw | 1 | Set screw, one per adapter in use |
+| Hook-and-loop strap, 20 mm wide | ~20 cm | Through both back slots |
 | Foam liner, 1 to 2 mm | optional | Comfort |
 
 Mass figures are solid volume x 1.27 g/cm³ (PETG). Real prints with 30 to 40% infill will weigh less.
@@ -91,3 +102,7 @@ Mass figures are solid volume x 1.27 g/cm³ (PETG). Real prints with 30 to 40% i
 | flatSlotW / flatSlotH | 4.5 / 15.0 | Flat slot |
 | roundBore | 11.0 | Round bore |
 | setScrewDia | 2.5 | Set screw pilot |
+| strapW | 20.0 | Strap width |
+| slotClear | 2.0 | Slot length over strap width |
+| slotT | 4.0 | Slot thickness |
+| slotX | 0.5 | Slot position, fraction of outer half-width |

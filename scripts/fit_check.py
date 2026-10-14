@@ -27,6 +27,21 @@ def seated(kind, size):
     return a
 
 
+# Inner/outer half-axes (a_in, b_in, a_out, b_out) per size, mm
+AXES = {'S': (37, 15, 40, 18), 'M': (42, 17, 45, 20), 'L': (47, 19, 50, 22)}
+
+
+def slot_check(size, cuff):
+    """Back-wall slots must be open; the mirror point on the palm wall must be solid."""
+    import numpy as np
+    ai, bi, ao, bo = AXES[size]
+    xs = 0.5 * ao
+    ym = 0.5 * (bi * (1 - (xs / ai) ** 2) ** 0.5 + bo * (1 - (xs / ao) ** 2) ** 0.5)
+    pts = np.array([[xs, ym, 17.5], [-xs, ym, 17.5], [xs, -ym, 17.5], [-xs, -ym, 17.5]])
+    inside = cuff.contains(pts)
+    return (not inside[0]) and (not inside[1]) and inside[2] and inside[3]
+
+
 def main():
     print('size adapter overlap_mm3')
     for size in 'SML':
@@ -35,6 +50,7 @@ def main():
             inter = trimesh.boolean.intersection([cuff, seated(kind, size)])
             v = 0.0 if inter.is_empty else abs(inter.volume)
             print(f'{size}    {kind:<7} {v:.2f}')
+        print(f'{size}    strap slots open on back, palm wall solid: {slot_check(size, cuff)}')
 
 
 if __name__ == '__main__':

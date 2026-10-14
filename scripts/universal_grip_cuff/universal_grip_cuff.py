@@ -31,6 +31,10 @@ P = {
     'flatSlotH': 15.0,    # flat handle slot width
     'roundBore': 11.0,    # round bore (pen, pencil, marker)
     'setScrewDia': 2.5,   # pilot hole for an M3 self-tapping set screw
+    'strapW': 20.0,       # hook-and-loop strap width
+    'slotClear': 2.0,     # extra slot length over strap width
+    'slotT': 4.0,         # slot thickness (strap passes through)
+    'slotX': 0.5,         # slot position as a fraction of outer half-width
 }
 
 EXPORT = True
@@ -127,6 +131,22 @@ def build_cuff(root, size, palmWidth, palmDepth, thumbGap):
     sk.name = 'ThumbGap'
     rect_on(sk, (0, -thumbGap / 2.0, 0), (a_out + 5.0, thumbGap / 2.0, 0))
     extrude(comp, sk.profiles.item(0), h, CUT, bodies=[body])
+
+    # 4b. Two strap slots in the back-of-hand wall (+Y).
+    #     A hook-and-loop strap enters one slot, crosses the back of the hand
+    #     inside the cuff, exits the other slot, and closes on the outside.
+    slotL = P['strapW'] + P['slotClear']
+    xs = P['slotX'] * a_out
+    zs = h / 2.0 - slotL / 2.0
+    sk = comp.sketches.add(offset_plane(comp, comp.xYConstructionPlane, zs))
+    sk.name = 'StrapSlots'
+    for sx in (-xs, xs):
+        # Box from the centre line out past the back wall only (+Y side).
+        rect_on(sk, (sx - P['slotT'] / 2.0, 0, zs), (sx + P['slotT'] / 2.0, b_out + 5.0, zs))
+    profs = adsk.core.ObjectCollection.create()
+    for i in range(sk.profiles.count):
+        profs.add(sk.profiles.item(i))
+    extrude(comp, profs, slotL, CUT, bodies=[body])
 
     # 5. Square socket, opening toward the thumb side
     zc = h / 2.0
