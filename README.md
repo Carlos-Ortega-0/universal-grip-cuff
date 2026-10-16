@@ -40,6 +40,23 @@ Everything is built by a parametric Fusion 360 script. Change palm width, palm d
 4. **Lock it.** Pull the strap ends snug and fold them over each other on the back of the cuff. A caregiver can do this in one motion, and so can many users with their other hand.
 5. **Use it.** The tool sticks out past the thumb, across the palm. The fingers don't grip anything. The arm and wrist steer the tool.
 
+## Similar designs
+
+This idea is not new, and it shouldn't be. Universal cuffs have been around for decades. Here is the work closest to this one.
+
+- **Volksswitch Customizable Universal Cuff Utensil/Tool Holder** ([Volksswitch](https://volksswitch.org/index.php/volks-devices/personalized-cuff-utensil-holder/)). Open source and parametric. It splits the device into a palm loop and a separate utensil mount joined by a dovetail interface, so each part sizes on its own. Same core idea as this project.
+- **US4602885A, Implement holding cuff (1986)** ([Google Patents](https://patents.google.com/patent/US4602885A/en)). Adjustable cuff that holds an elongated implement for people with little or no hand function.
+- **US5597189A, Prosthetic utensil and tool holding device (1997)** ([Google Patents](https://patents.google.com/patent/US5597189)). Rigid adjustable band with interchangeable tools, built for either hand.
+- **US12233527B2, Adaptive utensil holder (2025)** ([Google Patents](https://patents.google.com/patent/US12233527B2/en)). An add-on holder that plugs into a standard universal cuff and sets the utensil at an angle.
+
+What this version does differently:
+- Rigid C-shaped cuff locked by a hook-and-loop strap routed through two slots, so it can't slide or spin.
+- Square 12 mm socket with an M3 cross pin, so adapters lock in place instead of relying on friction.
+- Set-screw adapters that clamp both flat and round handles.
+- Prints with no supports.
+
+None of this is proven better yet. That is what printing and OT testing are for.
+
 ## Key characteristics
 
 - **Modular.** One cuff, many tools. The socket is a standard 12 mm square interface.
